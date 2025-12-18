@@ -1,0 +1,58 @@
+{
+  "name": "Solidity Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20-bullseye",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "NomicFoundation.hardhat-solidity",
+        "tintinweb.solidity-visual-auditor",
+        "tintinweb.vscode-solidity-language",
+        "juanblanco.solidity",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.test-adapter-converter",
+        "hbenl.vscode-mocha-test-adapter",
+        "ms-vsliveshare.vsliveshare"
+      ],
+      "settings": {
+        "solidity.compileUsingRemoteVersion": "latest",
+        "solidity.defaultCompiler": "remote",
+        "solidity.formatter": "prettier",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[solidity]": {
+          "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
+        },
+        "solidity.telemetry": false,
+        "files.associations": {
+          "*.sol": "solidity"
+        }
+      }
+    }
+  },
+  
+  "postCreateCommand": "mkdir -p ${localWorkspaceFolder}/.cache ; npm install -g npm@latest && npm install -D hardhat @nomicfoundation/hardhat-toolbox @nomicfoundation/hardhat-network-helpers @nomicfoundation/hardhat-chai-matchers @nomicfoundation/hardhat-ethers @nomicfoundation/hardhat-verify chai ethers hardhat-gas-reporter solidity-coverage @typechain/hardhat @typechain/ethers-v6 @openzeppelin/contracts @openzeppelin/hardhat-upgrades dotenv prettier prettier-plugin-solidity solhint",
+  
+  "postAttachCommand": "echo '✅ Dev Container Ready! Run: npx hardhat compile'",
+  
+  "remoteUser": "node",
+  
+  "mounts": [
+    "source=${localWorkspaceFolder}/.cache,target=/home/node/.cache,type=bind,consistency=cached"
+  ],
+  
+  "forwardPorts": [8545],
+  
+  "portsAttributes": {
+    "8545": {
+      "label": "Hardhat Network",
+      "onAutoForward": "notify"
+    }
+  }
+}

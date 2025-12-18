@@ -1,0 +1,57 @@
+{
+  "name": "C/C++ x86_64 for Reversing lab",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": true,
+      "upgradePackages": true
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cmake-tools",
+        "twxs.cmake",
+        "jeff-hykin.better-cpp-syntax",
+        "cschlosser.doxdocgen",
+        "ms-vscode.makefile-tools",
+        "EditorConfig.EditorConfig",
+        "xaver.clang-format",
+        "eamodio.gitlens",
+        "Gruntfuggly.todo-tree",
+        "alefragnani.Bookmarks"
+      ],
+      "settings": {
+        "C_Cpp.default.cppStandard": "c++20",
+        "C_Cpp.default.cStandard": "c17",
+        "C_Cpp.default.compilerPath": "/usr/bin/g++",
+        "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+        "cmake.configureOnOpen": true,
+        "editor.formatOnSave": true,
+        "C_Cpp.clang_format_fallbackStyle": "Google"
+      }
+    }
+  },
+  "remoteUser": "vscode",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ],
+  "workspaceFolder": "/workspace",
+  "runArgs": [
+    "--cap-add=SYS_PTRACE",
+    "--security-opt", "seccomp=unconfined",
+    "-p", "2222:22",
+    "--network", "devnet",
+    "--name", "cpp-dev"
+  ],
+  "forwardPorts": [],
+  "postStartCommand": "sudo /usr/sbin/sshd -D &"
+}
