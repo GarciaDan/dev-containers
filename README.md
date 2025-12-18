@@ -19,6 +19,7 @@ Before using any dev container from this collection, ensure you have:
 | Technology | Description | Link |
 |-----------|-------------|------|
 | **Solidity & Hardhat** | Ethereum smart contract development with Hardhat, OpenZeppelin, and testing tools | [→ View](./solidity-hardhat/) |
+| **C x86-64 Reversing** | C/C++ development oriented to reverse engineering | [→ View](./c-x86-64-reversing/) |
 | More coming soon... | | |
 
 ## 🎯 How to Use
