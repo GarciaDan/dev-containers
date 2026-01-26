@@ -53,5 +53,5 @@
     "--name", "cpp-dev"
   ],
   "forwardPorts": [],
-  "postStartCommand": "sudo /usr/sbin/sshd -D &"
+  "postStartCommand": "sudo service ssh start &"
 }
