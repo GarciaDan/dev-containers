@@ -44,6 +44,9 @@ Before using any dev container from this collection, ensure you have:
 ### Method 3: Clone and Experiment
 
 ```bash
+# Create the network (or update the devcontainer.json with your own Docker network)
+docker network create devnet
+
 # Clone this repository
 git clone https://github.com/GarciaDan/dev-containers.git
 
