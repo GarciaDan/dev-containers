@@ -1,0 +1,16 @@
+node_modules/
+dist/
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# npm lockfile (project uses pnpm)
+package-lock.json
