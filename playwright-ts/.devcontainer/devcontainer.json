@@ -1,0 +1,57 @@
+{
+  "name": "Playwright TypeScript",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": true,
+      "upgradePackages": true
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-playwright.playwright",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "usernamehw.errorlens",
+        "christian-kohler.path-intellisense",
+        "eamodio.gitlens",
+        "EditorConfig.EditorConfig",
+        "Gruntfuggly.todo-tree",
+        "alefragnani.Bookmarks"
+      ],
+      "settings": {
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "typescript.enablePromptUseWorkspaceTsdk": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit"
+          }
+        },
+        "eslint.validate": ["typescript", "javascript"],
+        "eslint.useFlatConfig": false,
+        "playwright.reuseBrowser": false,
+        "playwright.showTrace": "on-first-failure"
+      }
+    }
+  },
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "forwardPorts": [9323],
+  "portsAttributes": {
+    "9323": {
+      "label": "Playwright HTML Report",
+      "onAutoForward": "silent"
+    }
+  },
+  "postCreateCommand": "pnpm install && pnpm exec playwright install --with-deps"
+}
