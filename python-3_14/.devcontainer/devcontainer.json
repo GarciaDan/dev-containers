@@ -52,6 +52,7 @@
     }
   },
   "remoteUser": "vscode",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,consistency=cached",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "forwardPorts": [8888],
   "postCreateCommand": "python --version && ruff --version && uv --version"
