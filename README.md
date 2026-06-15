@@ -21,6 +21,7 @@ Before using any dev container from this collection, ensure you have:
 | **Solidity & Hardhat** | Ethereum smart contract development with Hardhat, OpenZeppelin, and testing tools | [→ View](./solidity-hardhat/) |
 | **C x86-64 Reversing** | C/C++ development oriented to reverse engineering | [→ View](./c-x86-64-reversing/) |
 | **Java 21 & PostgreSQL 18** | Java 21 development with PostgreSQL 18 database, Gradle, and cloud CLI tools | [→ View](./java-21-postgresql-18/) |
+| **Python 3.14** | Python 3.14 development with uv, Ruff, Mypy, pytest, and Jupyter notebook support | [→ View](./python-3_14/) |
 | More coming soon... | | |
 
 ## 🎯 How to Use
@@ -80,6 +81,11 @@ devcontainers-collection/
 │   │   └── Dockerfile
 │   ├── pg-init-scripts/
 │   │   └── create-multiple-postgresql-databases.sh
+│   └── README.md
+├── python-3_14/                       # Python 3.14
+│   ├── .devcontainer/
+│   │   ├── devcontainer.json
+│   │   └── Dockerfile
 │   └── README.md
 └── nodejs-express/                    # Example: Future addition
     ├── .devcontainer/
